@@ -8,21 +8,22 @@ using namespace std;
 
 
 void change(vector<string>inputs){
-int aux=0;
+    int aux=0;
     for(auto it:inputs){
-    for(int i=0;i<it.length();i++){
-        if(it[i]=='\"'){
-            switch(aux%2){
-                case 0:cout<<"``";
-                    break;
-                case 1:cout<<"\'\'";
+        for(int i=0;i<it.length();i++){
+            if(it[i]=='\"'){
+                switch(aux%2){
+                    case 0:cout<<"``";
+                        break;
+                    case 1:cout<<"\'\'";
+                }
+                aux++;
             }
-            aux++;
+            else
+                cout<<it[i];
         }
-        else
-            cout<<it[i];
+        cout<<endl;
     }
-}
 
 
 }
@@ -30,11 +31,11 @@ int aux=0;
 int main() {
     string input;
     vector<string>inputs;
-   do{
+    do{
         getline(cin,input);
         inputs.push_back(input);
     } while(input!="");
-   change(inputs);
+    change(inputs);
 
 
 }
